@@ -541,21 +541,8 @@ a {
     width: min(300px, calc(100vw - 28px));
     max-height: 48vh;
     margin: 0;
-    padding-right: 22px;
     overflow-y: auto;
-    scrollbar-gutter: stable;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
-  }
-
-  .toc-sidebar .toc-list::after {
-    content: "";
-    position: absolute;
-    top: 14px;
-    bottom: 14px;
-    right: 10px;
-    width: 1px;
-    background: #d9d9d9;
-    pointer-events: none;
   }
 
   .toc-sidebar.is-open .toc-list {
