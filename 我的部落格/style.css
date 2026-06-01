@@ -172,6 +172,10 @@ a {
   padding: 48px 0 72px;
 }
 
+.layout > * {
+  min-width: 0;
+}
+
 .layout-single {
   grid-template-columns: minmax(0, 1fr);
 }
@@ -183,6 +187,7 @@ a {
 }
 
 .post-card {
+  min-width: 0;
   padding: 24px;
   border: 1px solid #eeeeee;
   background: #ffffff;
@@ -243,12 +248,27 @@ a {
 }
 
 .post-body {
+  min-width: 0;
   color: #222222;
   font-family: var(--article-font);
   font-size: 12px;
   line-height: 2.1;
   overflow-wrap: anywhere;
   word-break: break-word;
+}
+
+.post-body #doc,
+.post-body .markdown-body,
+.post-body .container-fluid,
+.post-body .code-block-wrapper,
+.post-body .click-event-handled {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.post-body .code-block-wrapper,
+.post-body .click-event-handled {
+  overflow-x: auto;
 }
 
 .post-body > :first-child {
@@ -432,6 +452,13 @@ a {
   .post-body {
     font-size: 11px;
     line-height: 1.9;
+  }
+
+  .post-body #doc,
+  .post-body .markdown-body,
+  .post-body .container-fluid {
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .post-body h1 {
