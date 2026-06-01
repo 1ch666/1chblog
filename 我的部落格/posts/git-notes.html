@@ -417,6 +417,9 @@ git diff master origin/master
 
       <aside class="sidebar toc-sidebar" aria-label="文章目錄">
         <section class="sidebar-section">
+          <button class="toc-toggle" id="toc-toggle" type="button" aria-expanded="false" aria-controls="toc-list">
+            目錄
+          </button>
           <h2 class="sidebar-title">目錄</h2>
           <nav class="blank-list toc-list" id="toc-list" aria-label="文章段落目錄"></nav>
         </section>
@@ -434,10 +437,22 @@ git diff master origin/master
     (function () {
       var articleRoot = document.getElementById("doc");
       var tocRoot = document.getElementById("toc-list");
+      var tocToggle = document.getElementById("toc-toggle");
+      var tocSidebar = document.querySelector(".toc-sidebar");
 
-      if (!articleRoot || !tocRoot) {
+      if (!articleRoot || !tocRoot || !tocToggle || !tocSidebar) {
         return;
       }
+
+      function closeToc() {
+        tocSidebar.classList.remove("is-open");
+        tocToggle.setAttribute("aria-expanded", "false");
+      }
+
+      tocToggle.addEventListener("click", function () {
+        var isOpen = tocSidebar.classList.toggle("is-open");
+        tocToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
 
       var headings = articleRoot.querySelectorAll("h2[id], h3[id]");
 
@@ -448,6 +463,7 @@ git diff master origin/master
         link.href = "#" + heading.id;
         link.className = "toc-link toc-" + level;
         link.textContent = heading.textContent.trim();
+        link.addEventListener("click", closeToc);
 
         tocRoot.appendChild(link);
       });

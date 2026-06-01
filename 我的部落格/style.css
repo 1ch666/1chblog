@@ -374,6 +374,10 @@ a {
   position: relative;
 }
 
+.toc-toggle {
+  display: none;
+}
+
 .sidebar-section {
   border-top: 1px solid #eeeeee;
   padding-top: 18px;
@@ -492,6 +496,54 @@ a {
 
   .sidebar {
     gap: 24px;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .toc-sidebar .sidebar-section:first-child {
+    position: fixed;
+    left: 14px;
+    bottom: 14px;
+    z-index: 1000;
+    width: min(300px, calc(100vw - 28px));
+    padding-top: 0;
+    border-top: 0;
+    pointer-events: none;
+  }
+
+  .toc-sidebar .sidebar-section:first-child .sidebar-title {
+    display: none;
+  }
+
+  .toc-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 16px;
+    border: 1px solid #111111;
+    background: #ffffff;
+    color: #111111;
+    font-family: "Press Start 2P", "Microsoft JhengHei", sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  .toc-sidebar .toc-list {
+    display: none;
+    width: 100%;
+    max-height: 48vh;
+    margin: 0 0 10px;
+    overflow-y: auto;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+    pointer-events: auto;
+  }
+
+  .toc-sidebar.is-open .toc-list {
+    display: grid;
   }
 
   .blank-list {
