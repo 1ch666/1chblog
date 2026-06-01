@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1ch的部落格</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="intro-splash" id="intro-splash" aria-hidden="true">
+    <div class="intro-splash-inner">
+      <p class="intro-splash-text">
+        <span class="intro-splash-type" id="intro-splash-type"></span>
+        <span class="intro-splash-caret" aria-hidden="true"></span>
+      </p>
+    </div>
+  </div>
+
+  <div class="page">
+    <header class="site-header">
+      <img src="1ch.png" alt="1ch 頭像" class="avatar">
+      <div class="hero-copy">
+        <h1 class="site-title title-animate-two" aria-label="1ch的部落格">
+          <span>1</span><span>c</span><span>h</span><span>的</span><span>部</span><span>落</span><span>格</span>
+        </h1>
+      </div>
+    </header>
+
+    <nav class="site-nav" aria-label="主要導覽">
+      <a href="index.html">首頁</a>
+      <a href="posts/index.html">文章</a>
+      <a href="about.html">關於</a>
+      <a href="contact.html">聯絡</a>
+    </nav>
+
+    <main class="layout layout-single">
+      <section aria-labelledby="latest-posts">
+        <h2 class="section-title" id="latest-posts">最新文章</h2>
+        <div class="article-list" aria-label="文章清單">
+          <article class="article-row">
+            <a class="article-link" href="posts/git-notes.html">Git 自學筆記</a>
+            <p class="article-meta">2026-06-01</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+  </div>
+  <script>
+    (function () {
+      var splash = document.getElementById("intro-splash");
+      var output = document.getElementById("intro-splash-type");
+      var title = document.querySelector(".title-animate-two");
+      var text = "歡迎來到1ch的部落格";
+      var index = 0;
+
+      if (!splash || !output || !title) {
+        return;
+      }
+
+      function finishSplash() {
+        splash.classList.add("is-done");
+        window.setTimeout(function () {
+          title.classList.add("is-playing");
+        }, 350);
+        window.setTimeout(function () {
+          splash.setAttribute("hidden", "");
+        }, 700);
+      }
+
+      function typeNext() {
+        output.textContent = text.slice(0, index);
+
+        if (index < text.length) {
+          index += 1;
+          window.setTimeout(typeNext, index < 5 ? 140 : 110);
+          return;
+        }
+
+        window.setTimeout(finishSplash, 700);
+      }
+
+      window.setTimeout(typeNext, 250);
+    }());
+  </script>
+</body>
+</html>
