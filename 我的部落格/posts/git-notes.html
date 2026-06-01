@@ -454,6 +454,18 @@ git diff master origin/master
         tocToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
       });
 
+      document.addEventListener("click", function (event) {
+        if (!tocSidebar.classList.contains("is-open")) {
+          return;
+        }
+
+        if (tocSidebar.contains(event.target)) {
+          return;
+        }
+
+        closeToc();
+      });
+
       var headings = articleRoot.querySelectorAll("h2[id], h3[id]");
 
       headings.forEach(function (heading) {
