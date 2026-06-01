@@ -422,7 +422,7 @@ a {
   font-size: 11px;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1024px) {
   .page {
     width: min(100% - 28px, 1120px);
   }
@@ -561,7 +561,7 @@ a {
   }
 }
 
-@media (min-width: 761px) {
+@media (min-width: 1025px) {
   .toc-sidebar .sidebar-section:first-child {
     position: sticky;
     top: 24px;
