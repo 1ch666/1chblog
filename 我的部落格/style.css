@@ -247,6 +247,8 @@ a {
   font-family: var(--article-font);
   font-size: 12px;
   line-height: 2.1;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .post-body > :first-child {
@@ -317,6 +319,7 @@ a {
 
 .post-body pre {
   overflow-x: auto;
+  max-width: 100%;
   padding: 18px;
   border: 1px solid #e8e8e8;
   background: #fafafa;
@@ -420,6 +423,53 @@ a {
     grid-template-columns: 1fr;
     gap: 40px;
     padding-top: 36px;
+  }
+
+  .post-card {
+    padding: 16px;
+  }
+
+  .post-body {
+    font-size: 11px;
+    line-height: 1.9;
+  }
+
+  .post-body h1 {
+    font-size: 18px;
+  }
+
+  .post-body h2 {
+    font-size: 14px;
+  }
+
+  .post-body h3,
+  .post-body h4 {
+    font-size: 12px;
+  }
+
+  .post-body ul,
+  .post-body ol {
+    padding-left: 18px;
+  }
+
+  .post-body pre {
+    padding: 14px;
+  }
+
+  .post-body table,
+  .post-body iframe {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .sidebar {
+    gap: 24px;
+  }
+
+  .blank-list {
+    min-height: 0;
+    padding: 14px;
   }
 
   .article-row {
