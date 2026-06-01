@@ -503,14 +503,11 @@ a {
   }
 
   .toc-sidebar .sidebar-section:first-child {
-    position: fixed;
-    left: 14px;
-    bottom: 14px;
+    position: static;
     z-index: 1000;
-    width: min(300px, calc(100vw - 28px));
+    width: auto;
     padding-top: 0;
     border-top: 0;
-    pointer-events: none;
   }
 
   .toc-sidebar .sidebar-section:first-child .sidebar-title {
@@ -518,6 +515,10 @@ a {
   }
 
   .toc-toggle {
+    position: fixed;
+    left: 14px;
+    bottom: 14px;
+    z-index: 1001;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -529,17 +530,19 @@ a {
     font-family: "Press Start 2P", "Microsoft JhengHei", sans-serif;
     font-size: 11px;
     cursor: pointer;
-    pointer-events: auto;
   }
 
   .toc-sidebar .toc-list {
+    position: fixed;
+    left: 14px;
+    bottom: 66px;
+    z-index: 1000;
     display: none;
-    width: 100%;
+    width: min(300px, calc(100vw - 28px));
     max-height: 48vh;
-    margin: 0 0 10px;
+    margin: 0;
     overflow-y: auto;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
-    pointer-events: auto;
   }
 
   .toc-sidebar.is-open .toc-list {
