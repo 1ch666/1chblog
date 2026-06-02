@@ -587,9 +587,6 @@ a {
     gap: 4px;
   }
 
-  .view-counter-label {
-    display: none;
-  }
 }
 
 @media (min-width: 1025px) {
