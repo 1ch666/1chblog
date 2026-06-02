@@ -1,0 +1,8 @@
+我的部落格/repo-sync/
+我的部落格/import-article.ps1
+*.log
+*.tmp
+.env
+.env.*
+*.pem
+*.key
